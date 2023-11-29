@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:test4"
         mc:Ignorable="d"
         Title="MyDocumentViewer" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" Height="40" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ToolBar Height="40" Width="150">
+                <Button x:Name="newButton" Width="40" Height="40">
+                    <Image Height="35" Width="35" Source="/new-document.png"/>
+                </Button>
+            <Button x:Name="openButton" Width="40" Height="40">
+                    <Image Height="35" Width="35" Source="/folder.png"/>    
+            </Button>
+                <Button x:Name="saveButton" Width="40" Height="40">
+                    <Image Height="35" Width="35" Source="/diskette.png"/>
+                </Button>
+            </ToolBar> 
+        </ToolBarTray>
+    </DockPanel>
 </Window>

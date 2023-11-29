@@ -22,7 +22,6 @@ namespace test4
         public MyDocumentViewer()
         {
             InitializeComponent();
-            MessageBox.Show("建立新視窗成功!");
         }
     }
 }

@@ -7,4 +7,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="diskette.png" />
+    <None Remove="folder.png" />
+    <None Remove="new-document.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="diskette.png" />
+    <Resource Include="folder.png" />
+    <Resource Include="new-document.png" />
+  </ItemGroup>
+
 </Project>
