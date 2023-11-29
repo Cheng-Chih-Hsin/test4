@@ -23,5 +23,26 @@ namespace test4
         {
             InitializeComponent();
         }
+
+        private void New_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MyDocumentViewer myDocumentViewer = new MyDocumentViewer();
+            myDocumentViewer.Show();
+        }
+
+        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("ApplicationCommands.Open");
+        }
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("ApplicationCommands.Save");
+        }
+
+        private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            object property = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            boldButton.IsChecked = (property != DependencyProperty.UnsetValue) && (property.Equals(FontWeights.Bold));
+        }
     }
 }
