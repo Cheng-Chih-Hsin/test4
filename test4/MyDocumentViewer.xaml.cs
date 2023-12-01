@@ -19,9 +19,19 @@ namespace test4
     /// </summary>
     public partial class MyDocumentViewer : Window
     {
+        Color fontColor = Colors.Black;
         public MyDocumentViewer()
         {
             InitializeComponent();
+            fontClolorPicker.SelectedColor = fontColor;
+            foreach (FontFamily fontFamily in Fonts.SystemFontFamilies)
+            {
+                fontFamilyComoboBox.Items.Add(fontFamily.Source);
+            }
+            fontFamilyComoboBox.SelectedIndex = 3;
+            fontSizeComoboBox.ItemsSource = new List<Double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 32, 40, 50, 60, 70, 80, 100};
+            fontSizeComoboBox.SelectedIndex = 3;
+
         }
 
         private void New_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -49,6 +59,29 @@ namespace test4
 
             property = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             underlineButton.IsChecked =(property != DependencyProperty.UnsetValue) && (property.Equals(TextDecorations.Underline));
+        }
+
+        private void fontSizeComoboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (fontSizeComoboBox.SelectedItem != null)
+            {
+                rtbEditor.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, fontSizeComoboBox.SelectedItem);
+            }
+        }
+
+        private void fontFamilyComoboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (fontFamilyComoboBox.SelectedItem != null)
+            {
+                rtbEditor.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, fontFamilyComoboBox.SelectedItem);
+            }
+        }
+
+        private void fontClolorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            fontColor = (Color)e.NewValue;
+            SolidColorBrush fontBrush = new SolidColorBrush(fontColor);
+            rtbEditor.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, fontBrush);
         }
     }
 }
