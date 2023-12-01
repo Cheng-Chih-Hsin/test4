@@ -31,10 +31,10 @@
                 <ToggleButton x:Name="boldButton" Command="EditingCommands.ToggleBold" Width="40" Height="40">
                     <Image Height="35" Width="35" Source="/bold.png"/>
                 </ToggleButton>
-                <ToggleButton x:Name="italicButton" Width="40" Height="40">
+                <ToggleButton x:Name="italicButton" Command="EditingCommands.ToggleItalic" Width="40" Height="40">
                     <Image Height="35" Width="35" Source="/italic-font.png"/>
                 </ToggleButton>
-                <ToggleButton x:Name="underlineButton" Width="40" Height="40">
+                <ToggleButton x:Name="underlineButton" Command="EditingCommands.ToggleUnderline" Width="40" Height="40">
                     <Image Height="35" Width="35" Source="/underlined-text.png"/>
                 </ToggleButton>
             </ToolBar>

@@ -43,6 +43,12 @@ namespace test4
         {
             object property = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
             boldButton.IsChecked = (property != DependencyProperty.UnsetValue) && (property.Equals(FontWeights.Bold));
+
+            property = rtbEditor.Selection.GetPropertyValue(TextElement.FontWeightProperty);
+            italicButton.IsChecked= (property != DependencyProperty.UnsetValue) && (property.Equals(FontStyles.Italic));
+
+            property = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            underlineButton.IsChecked =(property != DependencyProperty.UnsetValue) && (property.Equals(TextDecorations.Underline));
         }
     }
 }
