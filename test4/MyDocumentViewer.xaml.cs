@@ -59,6 +59,19 @@ namespace test4
 
             property = rtbEditor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             underlineButton.IsChecked =(property != DependencyProperty.UnsetValue) && (property.Equals(TextDecorations.Underline));
+
+            property = rtbEditor.Selection.GetPropertyValue(TextElement.FontFamilyProperty);
+            if (property != DependencyProperty.UnsetValue && fontFamilyComoboBox.Items.Contains(property.ToString()))
+            {
+                fontFamilyComoboBox.SelectedItem = property.ToString();
+            }
+
+            property = rtbEditor.Selection.GetPropertyValue(TextElement.FontSizeProperty);
+            if (property != DependencyProperty.UnsetValue)
+            {
+                double fontSize = (double)property;
+                fontSizeComoboBox.SelectedItem = fontSize;
+            }
         }
 
         private void fontSizeComoboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
